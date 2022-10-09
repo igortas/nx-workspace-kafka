@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "projects": {
+    "api-gateway": "apps/api-gateway",
+    "kafka": "libs/kafka",
+    "orders": "apps/orders",
+    "users": "apps/users"
+  },
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json"
+}
