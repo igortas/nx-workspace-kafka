@@ -1,4 +1,4 @@
-import { Kafka } from 'kafkajs';
+import { Kafka, Partitioners } from 'kafkajs';
 
 export class KafkaService {
   #kafka: Kafka = null;
@@ -12,7 +12,7 @@ export class KafkaService {
   }
 
   async produceMessage(topic: string, messages: { value: any }[]) {
-    const producer = this.#kafka.producer();
+    const producer = this.#kafka.producer({});
     await producer.connect();
     await producer.send({
       topic,
