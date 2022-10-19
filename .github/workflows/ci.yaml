@@ -54,11 +54,11 @@ jobs:
             ${{ runner.os }}-node-${{ steps.versions.outputs.node_version }}-
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --prod --frozen-lockfile
 
       - run: |
           # npx nx workspace-lint
-          npx nx format:check
+          # npx nx format:check
           npx nx affected --target lint --parallel 3
           npx nx affected --target test --parallel 3 --ci --code-coverage
           npx nx affected --target build --parallel 3
