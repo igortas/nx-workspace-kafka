@@ -1,4 +1,4 @@
-name:
+name: CI
 
 on:
   push:
@@ -13,9 +13,6 @@ env:
 jobs:
   main:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ${{ github.workspace }}
     strategy:
       matrix:
         node-version: [16, 18]
@@ -39,8 +36,7 @@ jobs:
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
         id: setSHAs
         uses: nrwl/nx-set-shas@v3
-        with:
-          main-branch-name: ${{ github.base_ref }}
+        run: npm ci
 
       - name: Install PNPM
         uses: pnpm/action-setup@v2.2.2
