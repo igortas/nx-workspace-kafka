@@ -36,7 +36,9 @@ jobs:
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
         id: setSHAs
         uses: nrwl/nx-set-shas@v3
-        run: npm ci
+        with:
+          # main-branch-name: ${{ github.base_ref }}
+          main-branch-name: main
 
       - name: Install PNPM
         uses: pnpm/action-setup@v2.2.2
